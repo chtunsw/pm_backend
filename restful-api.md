@@ -25,7 +25,6 @@ Body:
 
 Body:
 {
-  id: "",
   name: "",
   title: ""
 }
@@ -39,7 +38,7 @@ Body:
 ### Employee
 
 GET /bulk/employee/:ids
-    ids = "id1,id2,..."
+  ids = "id1,id2,..."
 
 POST /bulk/employee
   request body [
@@ -51,10 +50,10 @@ POST /bulk/employee
     ...
   ]
 
-PUT /bulk/employee
+PUT /bulk/employee/:ids
+  ids = "id1,id2,..."
   request body [
     {
-        id: "",
         name: "",
         title: ""
     },
@@ -62,4 +61,4 @@ PUT /bulk/employee
   ]
 
 DELETE /bulk/employee/:ids
-    ids = "id1,id2,..."
+  ids = "id1,id2,..."
