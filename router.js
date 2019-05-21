@@ -20,7 +20,7 @@ const openapiDOC = yamljs.load('./openapi.yaml');
 router.use('/docs', swaggerUI.serve, swaggerUI.setup(openapiDOC));
 
 // use employeeRouter
-// const employeeRouter = require('./router/employee.js')
-// router.use(employeeRouter)
+const employeeRouter = require('./router/employee.js')
+router.use(employeeRouter)
 
 module.exports = router;
