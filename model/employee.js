@@ -5,12 +5,21 @@ const { Schema } = mongoose;
 
 // create employee schema
 const employeeSchema = new Schema({
-  id: String,
+
+  id: String, // to be replaced
+
+  //_id: Schema.Types.ObjectId,
   name: String,
-  title: String
+  title: String,
+  // potrait: String,
+  // password: String,
+  // email: String,
+  // salary: String,
+  // schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
+  // leaveRequests: [{ type: Schema.Types.ObjectId, ref: 'LeaveRequest' }],
 });
 
 // create employee model 
-const employeeModel = mongoose.model('employee', employeeSchema);
+const Employee = mongoose.model('Employee', employeeSchema);
 
-module.exports = employeeModel;
+module.exports = Employee;
