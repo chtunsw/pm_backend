@@ -7,7 +7,12 @@ const { Schema } = mongoose;
 const employeeSchema = new Schema({
   id: String,
   name: String,
-  title: String
+  title: String,
+  portrait: String,
+  password: String,
+  email: String,
+  salary: String,
+  schedules: [{type: Schema.Types.ObjectId, ref:'schedule'}]
 });
 
 // create employee model 
