@@ -1,37 +1,5 @@
 openapi: 3.0.0
 info:
   title: PM System API docs
-  description: including mongodb CRUD operations and login verification.
+  description: to be done
   version: 0.1.9
-paths:
-  /employee/{id}:
-    get:
-      summary: Return an employee obj.
-      description: Return an employee obj.
-      tags:
-        - Employee
-      parameters:
-        - name: id
-          in: path
-          description: id of the employee.
-          schema:
-            type: string
-      responses:
-        "200":    # status code
-          description: A JSON obj of employee.
-          content:
-            application/json:
-              schema: 
-                type: object
-        "404": # status code
-          description: not found.
-          content:
-            application/json:
-              schema:
-                type: object
-        "500": # status code
-          description: error occurs.
-          content:
-            application/json:
-              schema:
-                type: object
