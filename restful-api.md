@@ -6,59 +6,20 @@
 
 - GET
 
-/employee/:id
-
 - POST
-
-/employee
-
-Body:
-{
-  id: "",
-  name: "",
-  title: ""
-}
 
 - PUT
 
-/employee/:id
-
-Body:
-{
-  name: "",
-  title: ""
-}
-
 - DELETE
-
-/employee/:id
 
 ## Bulk APIs
 
 ### Employee
 
-GET /bulk/employee/:ids
-  ids = "id1,id2,..."
+- GET
 
-POST /bulk/employee
-  request body [
-    {
-        id: "",
-        name: "",
-        title: ""
-    },
-    ...
-  ]
+- POST
 
-PUT /bulk/employee/:ids
-  ids = "id1,id2,..."
-  request body [
-    {
-        name: "",
-        title: ""
-    },
-    ...
-  ]
+- PUT
 
-DELETE /bulk/employee/:ids
-  ids = "id1,id2,..."
+- DELETE
