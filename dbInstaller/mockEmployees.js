@@ -1,4 +1,7 @@
+const ObjectID = require('mongodb').ObjectID
+
 const Employee_1 = {
+    _id: new ObjectID(),
     name: "Employee_1",
     title: "admin",
     potrait: "Employee_1 potrait",
@@ -9,6 +12,7 @@ const Employee_1 = {
 }
 
 const Employee_2 = {
+    _id: new ObjectID(),
     name: "Employee_2",
     title: "admin",
     potrait: "Employee_2 potrait",
@@ -19,6 +23,7 @@ const Employee_2 = {
 }
 
 const Employee_3 = {
+    _id: new ObjectID(),
     name: "Employee_3",
     title: "staff",
     potrait: "Employee_3 potrait",
@@ -29,6 +34,7 @@ const Employee_3 = {
 }
 
 const Employee_4 = {
+    _id: new ObjectID(),
     name: "Employee_4",
     title: "staff",
     potrait: "Employee_4 potrait",
@@ -39,6 +45,7 @@ const Employee_4 = {
 }
 
 const Employee_5 = {
+    _id: new ObjectID(),
     name: "Employee_5",
     title: "staff",
     potrait: "Employee_5 potrait",
@@ -49,6 +56,7 @@ const Employee_5 = {
 }
 
 const Employee_6 = {
+    _id: new ObjectID(),
     name: "Employee_6",
     title: "staff",
     potrait: "Employee_6 potrait",
@@ -61,6 +69,7 @@ const Employee_6 = {
 }
 
 const Employee_7 = {
+    _id: new ObjectID(),
     name: "Employee_7",
     title: "staff",
     potrait: "Employee_7 potrait",
@@ -71,6 +80,7 @@ const Employee_7 = {
 }
 
 const Employee_8 = {
+    _id: new ObjectID(),
     name: "Employee_8",
     title: "staff",
     potrait: "Employee_8 potrait",
@@ -81,6 +91,7 @@ const Employee_8 = {
 }
 
 const Employee_9 = {
+    _id: new ObjectID(),
     name: "Employee_9",
     title: "staff",
     potrait: "Employee_9 potrait",
@@ -91,6 +102,7 @@ const Employee_9 = {
 }
 
 const Employee_10 = {
+    _id: new ObjectID(),
     name: "Employee_10",
     title: "staff",
     potrait: "Employee_10 potrait",
@@ -101,6 +113,7 @@ const Employee_10 = {
 }
 
 const Employee_11 = {
+    _id: new ObjectID(),
     name: "Employee_11",
     title: "staff",
     potrait: "Employee_11 potrait",
@@ -111,6 +124,7 @@ const Employee_11 = {
 }
 
 const Employee_12 = {
+    _id: new ObjectID(),
     name: "Employee_12",
     title: "staff",
     potrait: "Employee_12 potrait",
@@ -121,6 +135,7 @@ const Employee_12 = {
 }
 
 const Employee_13 = {
+    _id: new ObjectID(),
     name: "Employee_13",
     title: "staff",
     potrait: "Employee_13 potrait",
@@ -131,6 +146,7 @@ const Employee_13 = {
 }
 
 const Employee_14 = {
+    _id: new ObjectID(),
     name: "Employee_14",
     title: "staff",
     potrait: "Employee_14 potrait",
@@ -141,6 +157,7 @@ const Employee_14 = {
 }
 
 const Employee_15 = {
+    _id: new ObjectID(),
     name: "Employee_15",
     title: "staff",
     potrait: "Employee_15 potrait",
@@ -150,7 +167,7 @@ const Employee_15 = {
     salary: "30$/hr",
 }
 
-module.exports = {
+module.exports = [
     Employee_1,
     Employee_2,
     Employee_3,
@@ -166,4 +183,4 @@ module.exports = {
     Employee_13,
     Employee_14,
     Employee_15,
-}
+]

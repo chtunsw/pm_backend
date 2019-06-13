@@ -1,4 +1,7 @@
+const ObjectID = require('mongodb').ObjectID
+
 const LeaveRequest_1 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -6,6 +9,7 @@ const LeaveRequest_1 = {
 }
 
 const LeaveRequest_2 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -13,6 +17,7 @@ const LeaveRequest_2 = {
 }
 
 const LeaveRequest_3 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -20,6 +25,7 @@ const LeaveRequest_3 = {
 }
 
 const LeaveRequest_4 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -27,6 +33,7 @@ const LeaveRequest_4 = {
 }
 
 const LeaveRequest_5 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -34,6 +41,7 @@ const LeaveRequest_5 = {
 }
 
 const LeaveRequest_6 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -41,6 +49,7 @@ const LeaveRequest_6 = {
 }
 
 const LeaveRequest_7 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -48,6 +57,7 @@ const LeaveRequest_7 = {
 }
 
 const LeaveRequest_8 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -55,6 +65,7 @@ const LeaveRequest_8 = {
 }
 
 const LeaveRequest_9 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -62,6 +73,7 @@ const LeaveRequest_9 = {
 }
 
 const LeaveRequest_10 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -69,6 +81,7 @@ const LeaveRequest_10 = {
 }
 
 const LeaveRequest_11 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -76,6 +89,7 @@ const LeaveRequest_11 = {
 }
 
 const LeaveRequest_12 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -83,6 +97,7 @@ const LeaveRequest_12 = {
 }
 
 const LeaveRequest_13 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -90,6 +105,7 @@ const LeaveRequest_13 = {
 }
 
 const LeaveRequest_14 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
@@ -97,13 +113,14 @@ const LeaveRequest_14 = {
 }
 
 const LeaveRequest_15 = {
+    _id: new ObjectID(),
     startDate: new Date(2019, 6, 3),
     endDate: new Date(2019, 6, 4),
     leaveReason: "some eeeeee eeeeee eeeee eeeee eeeeee reason",
     approvalStatus: "pending",
 }
 
-module.exports = {
+module.exports = [
     LeaveRequest_1,
     LeaveRequest_2,
     LeaveRequest_3,
@@ -119,4 +136,4 @@ module.exports = {
     LeaveRequest_13,
     LeaveRequest_14,
     LeaveRequest_15,
-}
+]
