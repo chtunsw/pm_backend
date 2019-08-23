@@ -1,88 +1,86 @@
 "use strict";
 
-// import mock data
-const employees = require('./mockEmployees')
-const leaveRequests = require('./mockLeaveRequests')
-const schedules = require('./mockSchedules')
-
 // import database model
 const employeeModel = require("../model/employee");
 const leaveRequestModel = require("../model/leaveRequest");
 const scheduleModel = require("../model/schedule");
 
+// import mock data objects
+const employees = require("./mockEmployees");
+const leaveRequests = require("./mockLeaveRequests");
+const schedules = require("./mockSchedules");
+
 // define dbInstaller
 async function dbInstaller() {
-    // recreate and connect to database
-    const mongoose = require("mongoose");
-    const uri = "mongodb://user123:user123@cluster0-shard-00-00-dfmqy.mongodb.net:27017,cluster0-shard-00-01-dfmqy.mongodb.net:27017,cluster0-shard-00-02-dfmqy.mongodb.net:27017/pm_database?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
-    await mongoose.connect(uri, { useNewUrlParser: true }, () => mongoose.connection.db.dropDatabase());
-    await mongoose.connect(uri, { useNewUrlParser: true })
-    // insert data
-    await Promise.all(
-        employees.map( async (employee, index) => {
-            try {
-                let leaveRequestIndexArray = []
-                let scheduleIndexArray = []
-                let leaveRequestIdArray = []
-                let scheduleIdArray = []
-                if(index === 0){
-                    leaveRequestIndexArray = [0, 1, 2, 3, 4]
-                    scheduleIndexArray = [0, 1, 2]
-                }else if(index === 1){
-                    leaveRequestIndexArray = [5, 6, 7, 8, 9]
-                    scheduleIndexArray = [3, 4, 5]
-                }else if(index === 10){
-                    leaveRequestIndexArray = [10, 11, 12, 13, 14]
-                    scheduleIndexArray = [6, 7, 8]
-                }
-                // insert leave requests
-                const employeeID = {
-                    employeeID: employee._id
-                }
-                leaveRequestIndexArray.map( async index => {
-                    try {
-                        leaveRequestIdArray.push(leaveRequests[index]._id)
-                        const leaveRequestObj = Object.assign(leaveRequests[index], employeeID)
-                        const newleaveRequest = new leaveRequestModel(leaveRequestObj);
-                        await newleaveRequest.save();
-                        console.log('leave request', index)
-                    } catch(e) {
-                        console.log(e)
-                    }
-                })
-                // insert schedules
-                scheduleIndexArray.map( async index => {
-                    try {
-                        scheduleIdArray.push(schedules[index]._id)
-                        const scheduleObj = Object.assign(schedules[index], employeeID)
-                        const newSchedule = new scheduleModel(scheduleObj);
-                        await newSchedule.save();
-                        console.log('schedule', index)
-                    } catch(e) {
-                        console.log(e)
-                    }
-                })
-                // insert employees
-                const leaveRequestArray = {
-                    leaveRequests: leaveRequestIdArray
-                }
-                const scheduleArray = {
-                    schedules: scheduleIdArray
-                }
-                let employeeObj = employee
-                Object.assign(employeeObj, leaveRequestArray, scheduleArray)
-                const newEmployee = new employeeModel(employeeObj);
-                await newEmployee.save();
-                console.log('exployee', index)
-                return ['exployee', index]
-            } catch (e) {
-                console.log(e)
-            }
-        })
-    ).then(result => console.log('promise:', result))
-    // database installed
-    console.log('database installed')
+  // recreate and connect to database
+  const mongoose = require("mongoose");
+  const url =
+    "mongodb://user123:user123@cluster0-shard-00-00-dfmqy.mongodb.net:27017,cluster0-shard-00-01-dfmqy.mongodb.net:27017,cluster0-shard-00-02-dfmqy.mongodb.net:27017/pm_database?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
+  await mongoose.connect(url, { useNewUrlParser: true }, () =>
+    mongoose.connection.db.dropDatabase()
+  );
+  await mongoose.connect(url, { useNewUrlParser: true });
+  // insert data
+  // create new objects
+  var newEmployees = employees;
+  var newleaveRequests = leaveRequests;
+  var newSchedules = schedules;
+  // define _id reference relationship among objects
+  const mapRelationship = [
+    {
+      employeeIndex: 0,
+      leaveRequestIndexes: Array.from(Array(5), (item, index) => index),
+      scheduleIndexes: Array.from(Array(3), (item, index) => index)
+    },
+    {
+      employeeIndex: 1,
+      leaveRequestIndexes: Array.from(Array(5), (item, index) => index + 5),
+      scheduleIndexes: Array.from(Array(3), (item, index) => index + 3)
+    },
+    {
+      employeeIndex: 10,
+      leaveRequestIndexes: Array.from(Array(5), (item, index) => index + 10),
+      scheduleIndexes: Array.from(Array(3), (item, index) => index + 6)
+    }
+  ];
+  // update new objects with reference _id
+  mapRelationship.map(relationship => {
+    // update newEmployees with leaveRequestIds and scheduleIds
+    Object.assign(newEmployees[relationship.employeeIndex], {
+      schedules: relationship.leaveRequestIndexes.map(
+        index => newleaveRequests[index]._id
+      ),
+      leaveRequests: relationship.scheduleIndexes.map(
+        index => newSchedules[index]._id
+      )
+    });
+    // update newLeaveRequests with employeeId
+    relationship.leaveRequestIndexes.map(leaveRequestIndex => {
+      Object.assign(newleaveRequests[leaveRequestIndex], {
+        employeeID: newEmployees[relationship.employeeIndex]._id
+      });
+    });
+    // update newSchedules with employeeId
+    relationship.scheduleIndexes.map(scheduleIndex => {
+      Object.assign(newSchedules[scheduleIndex], {
+        employeeID: newEmployees[relationship.employeeIndex]._id
+      });
+    });
+  });
+  // save data in database
+  newEmployees.map(newEmployee => {
+    const newData = new employeeModel(newEmployee);
+    newData.save();
+  });
+  newleaveRequests.map(newleaveRequest => {
+    const newData = new leaveRequestModel(newleaveRequest);
+    newData.save();
+  });
+  newSchedules.map(newSchedule => {
+    const newData = new scheduleModel(newSchedule);
+    newData.save();
+  });
 }
 
 // install db
-dbInstaller()
+dbInstaller().then(result => console.log("database installed successfully!"));
