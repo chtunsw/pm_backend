@@ -3,7 +3,6 @@
 // require global modules
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 
 // require local modules
 const router = require('./router');
@@ -17,8 +16,8 @@ mongoose.connect(uri, { useNewUrlParser: true });
 // create app server
 const app = express();
 
-// extract request body to json
-app.use(bodyParser.json());
+// parse json payloads in requests
+app.use(express.json());
 
 // use router
 app.use(router);
