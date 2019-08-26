@@ -1,25 +1,18 @@
 "use strict";
-
 const employee = require("../../../model/employee");
 
 module.exports = async (req, res, next) => {
     try {
         const { id } = req.params;
-        if (id.length !== 3) {
-            res.statusCode = 400;
-            res.send({
-                msg: "id should have 3 digits!"
-            });
-            return;
-        }
+        console.log(id)
         const result = await employee.deleteOne({
-            id: id
+            _id: id
         });
         if (result.deletedCount === 0) {
             res.statusCode = 404;
             res.send({
                 id: id,
-                msg: "employee dose not exist!"
+                msg: "employee does not exist!"
             });
         } else {
             res.statusCode = 200;
@@ -31,8 +24,9 @@ module.exports = async (req, res, next) => {
     } catch (e) {
         res.statusCode = 500;
         res.send({
-            msg: "employee deletion failed!"
+            msg: "employee deletion failed!",
         });
-        next(e);
+        // pass errors to Express
+        next(e)
     }
 };
