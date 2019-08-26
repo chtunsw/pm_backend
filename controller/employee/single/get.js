@@ -1,5 +1,5 @@
 "use strict";
-var ObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongoose').Types.ObjectId;
 const employee = require("../../../model/employee");
 
 module.exports = async (req, res, next) => {

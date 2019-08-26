@@ -1,4 +1,4 @@
-var ObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const Schedule_1 = {
     _id: new ObjectId(),

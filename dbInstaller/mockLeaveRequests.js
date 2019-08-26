@@ -1,4 +1,4 @@
-var ObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const LeaveRequest_1 = {
     _id: new ObjectId(),
