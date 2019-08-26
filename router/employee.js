@@ -27,4 +27,5 @@ router.get("/bulk/employee/:ids", bulkGet);
 // router.put("/bulk/employee", bulkUpdate);
 // router.delete("/bulk/employee/:ids", bulkDelete);
 
+// export router
 module.exports = router;
