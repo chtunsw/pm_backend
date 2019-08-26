@@ -4,7 +4,6 @@ const employee = require("../../../model/employee");
 module.exports = async (req, res, next) => {
     try {
         const { id } = req.params;
-        console.log(id)
         const result = await employee.deleteOne({
             _id: id
         });
