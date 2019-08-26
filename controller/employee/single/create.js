@@ -1,5 +1,5 @@
 "use strict";
-const ObjectID = require('mongodb').ObjectID
+var ObjectId = require('mongoose').Types.ObjectId;
 const employee = require("../../../model/employee");
 
 module.exports = async (req, res, next) => {
@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
             // initialize _id for new record object
             const newObject = {
                 ...body,
-                _id: new ObjectID(),
+                _id: new ObjectId(),
             };
             // save new record
             const newEmployee = new employee(newObject);
