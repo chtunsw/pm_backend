@@ -68,18 +68,18 @@ async function dbInstaller() {
     });
   });
   // save data in database
-  newEmployees.map(newEmployee => {
+  await Promise.all(newEmployees.map(async newEmployee => {
     const newData = new employeeModel(newEmployee);
-    newData.save();
-  });
-  newleaveRequests.map(newleaveRequest => {
+    await newData.save();
+  }))
+  await Promise.all(newleaveRequests.map(async newleaveRequest => {
     const newData = new leaveRequestModel(newleaveRequest);
-    newData.save();
-  });
-  newSchedules.map(newSchedule => {
+    await newData.save();
+  }))
+  await Promise.all(newSchedules.map(async newSchedule => {
     const newData = new scheduleModel(newSchedule);
-    newData.save();
-  });
+    await newData.save();
+  }))
 }
 
 // install db
