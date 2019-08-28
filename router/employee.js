@@ -18,14 +18,14 @@ const router = Router();
 // single employee restful apis
 router.get("/employee/:id", singleGet);
 router.post("/employee", singleCreate);
-router.put("/employee/:id", singleUpdate);
+router.put("/employee", singleUpdate);
 router.delete("/employee/:id", singleDelete);
 
 // bulk employee restful apis
-router.get("/bulk/employee/:ids", bulkGet);
-// router.post("/bulk/employee", bulkCreate);
-// router.put("/bulk/employee", bulkUpdate);
-// router.delete("/bulk/employee/:ids", bulkDelete);
+router.get("/employees", bulkGet);
+// router.post("/employees", bulkCreate);
+// router.put("/employees", bulkUpdate);
+// router.delete("/employees", bulkDelete);
 
 // export router
 module.exports = router;

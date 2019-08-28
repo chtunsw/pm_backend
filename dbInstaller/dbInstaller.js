@@ -70,15 +70,18 @@ async function dbInstaller() {
   // save data in database
   await Promise.all(newEmployees.map(async newEmployee => {
     const newData = new employeeModel(newEmployee);
-    await newData.save();
+    const employeePromise = await newData.save();
+    console.log(employeePromise)
   }))
   await Promise.all(newleaveRequests.map(async newleaveRequest => {
     const newData = new leaveRequestModel(newleaveRequest);
-    await newData.save();
+    const leaveRequestPromise = await newData.save();
+    console.log(leaveRequestPromise)
   }))
   await Promise.all(newSchedules.map(async newSchedule => {
     const newData = new scheduleModel(newSchedule);
-    await newData.save();
+    const schedulePromise = await newData.save();
+    console.log(schedulePromise)
   }))
 }
 
