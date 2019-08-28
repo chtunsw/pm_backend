@@ -14,11 +14,10 @@ module.exports = async (req, res, next) => {
             // if employee exist, can be update
             if (result) {
                 const newObject = {
-                    ...result,
-                    body,
+                    ...result.toObject(),
+                    ...body,
                 }
-                const newEmployee = new employee(newObject);
-                await newEmployee.save();
+                await employee.updateOne({ _id: body._id }, newObject)
                 res.statusCode = 200;
                 res.send({
                     id: body._id,
