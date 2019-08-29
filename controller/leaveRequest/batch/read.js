@@ -14,12 +14,12 @@ module.exports = async (req, res, next) => {
                 res.statusCode = 200;
                 res.send({
                     result,
-                    message: "leaveRequest read succeed!"
+                    message: "leaveRequest batch read succeed!"
                 })
             } else {
                 res.statusCode = 404;
                 res.send({
-                    message: "leaveRequest not found!"
+                    message: "leaveRequest batch not found!"
                 })
             }
         } else {
@@ -31,7 +31,7 @@ module.exports = async (req, res, next) => {
     } catch (e) {
         res.statusCode = 500;
         res.send({
-            message: "leaveRequest read failed!"
+            message: "leaveRequest batch read failed!"
         })
         next(e);
     }
