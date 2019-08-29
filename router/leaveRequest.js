@@ -12,7 +12,7 @@ const singleDelete = require("../controller/leaveRequest/single/delete.js")
 // const paginateRead = require("../controller/leaveRequest/paginate/read.js")
 
 // batch leaveRequest api callback function
-// const batchRead = require("../controller/leaveRequest/batch/read.js")
+const batchRead = require("../controller/leaveRequest/batch/read.js")
 
 // create router
 const router = Router()
@@ -27,6 +27,6 @@ router.delete("/leaveRequest/:id", singleDelete)
 // router.get("/leaveRequests/:pageIndex/:pageSize", paginateRead)
 
 // batch leaveRequest restful apis
-// router.get("/leaveRequest/:ids", batchRead)
+router.get("/employee/:id/leaveRequests/:pageIndex/:pageSize", batchRead)
 
 module.exports = router
