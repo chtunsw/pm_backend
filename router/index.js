@@ -20,7 +20,7 @@ const leaveRequestRouter = require("./leaveRequest.js")
 router.use(leaveRequestRouter)
 
 // use scheduleRouter
-// const scheduleRouter = require("./schedule.js")
-// router.use(scheduleRouter)
+const scheduleRouter = require("./schedule.js")
+router.use(scheduleRouter)
 
 module.exports = router;
