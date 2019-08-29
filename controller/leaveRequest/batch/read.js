@@ -10,18 +10,11 @@ module.exports = async (req, res, next) => {
         pageSize = Number(pageSize)
         if (ObjectId.isValid(id)) {
             const result = await leaveRequest.find({ employeeID: id }, undefined, { limit: pageSize, skip: pageIndex * pageSize })
-            if (result.length) {
-                res.statusCode = 200;
-                res.send({
-                    result,
-                    message: "leaveRequest batch read succeed!"
-                })
-            } else {
-                res.statusCode = 404;
-                res.send({
-                    message: "leaveRequest batch not found!"
-                })
-            }
+            res.statusCode = 200;
+            res.send({
+                result,
+                message: "leaveRequest batch read succeed!"
+            })
         } else {
             res.statusCode = 400;
             res.send({
