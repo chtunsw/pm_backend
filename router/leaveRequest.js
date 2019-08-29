@@ -9,7 +9,7 @@ const singleUpdate = require("../controller/leaveRequest/single/update.js")
 const singleDelete = require("../controller/leaveRequest/single/delete.js")
 
 // paginate leaveRequest api callback function
-// const paginateRead = require("../controller/leaveRequest/paginate/read.js")
+const paginateRead = require("../controller/leaveRequest/paginate/read.js")
 
 // batch leaveRequest api callback function
 const batchRead = require("../controller/leaveRequest/batch/read.js")
@@ -24,7 +24,7 @@ router.put("/leaveRequest", singleUpdate)
 router.delete("/leaveRequest/:id", singleDelete)
 
 // paginate leaveRequest restful apis
-// router.get("/leaveRequests/:pageIndex/:pageSize", paginateRead)
+router.get("/leaveRequests/:pageIndex/:pageSize", paginateRead)
 
 // batch leaveRequest restful apis
 router.get("/employee/:id/leaveRequests/:pageIndex/:pageSize", batchRead)
