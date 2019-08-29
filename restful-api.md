@@ -130,7 +130,7 @@ Body:
 {
 	"date": "",
 	"detail": "",
-    "employeeID":""
+  "employeeID":""
 }
 
 - PUT
@@ -140,10 +140,10 @@ Body:
 Body: 
 
 {   
-    "_id": "",
+  "_id": "",
 	"date": "",
 	"detail": "",
-    "employeeID":""
+  "employeeID":""
 }
 
 - DELETE
