@@ -21,10 +21,11 @@ module.exports = async (req, res, next) => {
                 message: "id is not valid!"
             })
         }
-    } catch{
+    } catch (e) {
         res.statusCode = 500;
         res.send({
             message: "schedule batch read failed!"
         })
+        next(e);
     }
 }
