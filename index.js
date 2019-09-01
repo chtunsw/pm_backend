@@ -19,10 +19,16 @@ const app = express();
 // parse json payloads in requests
 app.use(express.json());
 
+// add cors header
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next();
+})
+
 // use router
 app.use(router);
 
-// app server listen PORT 3000
-app.listen(3000, () => {
-  console.log("Server starts at PORT: 3000");
+// app server listen PORT 1000
+app.listen(1000, () => {
+  console.log("Server starts at PORT: 1000");
 });
