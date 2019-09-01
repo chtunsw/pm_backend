@@ -10,8 +10,8 @@ COPY . .
 # install all pakages
 RUN npm install --production
 
-# make port 3000 exposed to outside
-EXPOSE 3000
+# make port 1000 exposed to outside
+EXPOSE 1000
 
 # define environment variable
 ENV NAME = pm_env
