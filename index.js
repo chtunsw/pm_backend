@@ -20,9 +20,11 @@ const app = express();
 // parse json payloads in requests
 app.use(express.json());
 
-// add cors header
+// set cors header
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.set({
+    "Access-Control-Allow-Origin": "*"
+  });
   next();
 });
 
